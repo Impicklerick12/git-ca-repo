@@ -42,9 +42,11 @@ end
 # 	puts "What would you like to name your planty today?"
 # 	first_name = gets.strip
 # 	puts "Your new planty #{first_name} is alive and well!"
+# 	@name = first_name
 # 	sleep(2)
-# 	clear_welcome
-# 	return first_name
+# 	# clear_welcome
+# 	garden = Plant.new(@name)
+# 	return garden
 # end
 
 # def welcome
@@ -81,6 +83,12 @@ def validate_options
 	
 end
 
+def keep_playing
+	puts "Press any key to return to the menu"
+	gets
+	clear_welcome
+end
+
 def help
 	
 	clear_welcome
@@ -89,11 +97,12 @@ def help
 end
 
 def main
-	
+
 	garden = Plant.new
 	continue = true
 	
 	clear_welcome
+	# init_name
 	sleep(2)
 	system("clear")
 	# init_name
@@ -109,12 +118,19 @@ def main
 			# when "$"
 			# garden.sing
 			when "f"
+			system("clear")
 			garden.feed
+			keep_playing
 			when "w"
+			system("clear")
 			garden.water
+			keep_playing
 			when "s"
+			system("clear")
 			garden.spray
+			keep_playing
 			when "h"
+			system("clear")
 			help
 			when "q"
 			continue = false
@@ -123,3 +139,5 @@ def main
 end
 
 main
+
+
