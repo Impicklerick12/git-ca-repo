@@ -8,23 +8,23 @@ class Plant
 	@@bug_count = 0
 	
 	
-	#WRONG NUMBER OF ARGUMENTS? EXPECTING 5
-	# def initialize(name, sing, feed, water, spray)
+	# # WRONG NUMBER OF ARGUMENTS? EXPECTING 5
+	# def initialize(name)
 	# 	@name = name
-	# 	@sing = sing
-	# 	@feed = feed
-	# 	@water = water
-	# 	@spray = spray
+		# @sing = sing
+		# @feed = feed
+		# @water = water
+		# @spray = spray
 	# end
 	
 	def rename
-		puts "What would you like to name your plant?"
+		puts "What would you like to change your plants name to?"
 		rename = gets.strip
-		first_name = rename
-		puts "You have successfully named your plant: #{rename}!"
+		@name = rename
+		puts "You have successfully renamed your plant: #{@name}!"
 		sleep(2)
 		clear_welcome
-		return rename
+		return @name
 	end
 	
 	# def name(rename)
@@ -41,27 +41,36 @@ class Plant
 	# end
 	
 	def feed
-		puts "Yum! You have fed your plant"
 		@@hunger -= 1
-		puts "You have decreased your plants hunger level to #{@@hunger}!"
-		sleep(2)
-		clear_welcome
+		@@thirst += 1
+		@@bug_count += 1
+		puts @@hunger >= -3 ? "Yummy! You have fed your plant" : "Your planty is too full! Please chose another option!"
+		show_variables
 	end
 	
 	def water
-		puts "Thirst quenching! You have watered your plant"
 		@@thirst -= 1
-		puts "Your have decreased your plants thirst level to #{@@thirst}!"
-		sleep(2)
-		clear_welcome
+		@@hunger += 1
+		@@bug_count += 1
+		puts @@thirst >= -3 ? "Thirst quenching! You have watered your plant" : "Your planty is watered enough. Please chose another option!"
+		show_variables
 	end
 	
 	def spray
-		puts "Healthy! You have srpayed your plant with bug remover"
 		@@bug_count -= 1
-		puts "You have decreased your plants bug count to #{@@bug_count}!"
-		sleep(2)
-		clear_welcome
+		@@hunger += 1
+		@@thirst += 1
+		puts @@bug_count >= -3 ? "Healthy! You have srpayed your plant with bug remover" : "There are no bugs left on your plant. Please chose another option!"
+		show_variables
+	end
+	
+	def show_variables
+		puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+		puts "Your current plant levels are - "
+		puts "Hunger: #{@@hunger}"
+		puts "Thirst: #{@@thirst}"
+		puts "Bug Count : #{@@bug_count}"
+		puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 	end
 
 end
