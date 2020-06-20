@@ -1,0 +1,12 @@
+<h1> Show </h1>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @celebrities[@id]["name"] %></h1>
+    <p class="lead"><%= @celebrities[@id]["name"] %>
+    has starred in
+    <%= @celebrities[@id]["notability"] %></p>
+  </div>
+</div>
+
+<button type="button" class="btn btn-outline-danger"><%= link_to "Back to Celebrities", celebrities_index_path %></button>

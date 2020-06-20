@@ -1,0 +1,9 @@
+<h1>Products#index</h1>
+
+<% @products.each do |products| %>
+    <ul>
+        <li><%= products %></li>
+    </ul>
+<% end %>
+
+<p> There are <%= @products.count %> products </p>

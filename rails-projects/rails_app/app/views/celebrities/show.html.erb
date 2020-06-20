@@ -1,0 +1,10 @@
+<h1> Show </h1>
+
+<h2><%= @celebrities[@id]["name"] %></h2>
+<p>
+    <%= @celebrities[@id]["name"] %>
+    has starred in
+    <%= @celebrities[@id]["notability"] %>
+</p>
+
+<a><%= link_to "Back to Celebrities", celebrities_index_path %></a>

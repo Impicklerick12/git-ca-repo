@@ -1,0 +1,9 @@
+<h1> Celebrities Index </h1>
+
+<h2> Celebrities </h2>
+
+<% @celebrities.each_with_index do |celebrity, index| %>
+    <ul>
+        <li><%= link_to celebrity["name"], show_path(index) %></li>
+    </ul>
+<% end %>

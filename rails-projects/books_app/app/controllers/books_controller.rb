@@ -11,23 +11,31 @@ class BooksController < ApplicationController
 
     #Show a single book
     def show
-        # render json: @data
-        render plain: "working"
+        render plain: "working show"
     end
 
     #Create a new book
     def create
         p "here"
         puts params
-        render plain: "working"
+        # render plain: "working create"
+        # @article_title = "title = #{params[:article][:title]}"
+        # @author = "author = #{params[:article][:author]}"
+        # @data[:title] = params[:article][:title]
+        # @content = "content = #{params[:article][:content]}"
+        new_data = { title: "#{params[:article][:title]}", author: "#{params[:article][:author]}" }
+        @data.push (new_data)
+        render json: @data
     end
 
     #Update a book
     def update
+        render plain: "working update"
     end
 
     #Remove a book
     def destroy
+        render plain: "working destroy"
     end
 
     def test_before
@@ -36,6 +44,7 @@ class BooksController < ApplicationController
 
     def test_after
         puts "After"
+
     end
 
     private
