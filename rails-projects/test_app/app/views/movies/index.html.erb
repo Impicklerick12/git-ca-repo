@@ -1,0 +1,9 @@
+<h1>List all Movies</h1>
+
+<ul>
+<% @movies.each do |movie| %>
+    <li>
+        <%= movie[":title"] %> : <%= movie[":rating"] %><a href="#"> Edit</a>
+    </li>
+<% end %>
+</ul>
