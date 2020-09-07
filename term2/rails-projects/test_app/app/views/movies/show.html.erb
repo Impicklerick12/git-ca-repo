@@ -1,0 +1,7 @@
+<h1>Show a Movie</h1>
+
+<h2><%= @movie[":title"] %> </h2>
+<p>Rating: <%= @movie[":rating"] %></p>
+<button type="button" class="btn btn-outline-danger"><%= link_to "Edit Movie", edit_movie_path %></button>
+
+<button type="button" class="btn btn-outline-danger"><%= link_to "Back to Movies", movies_path %></button>

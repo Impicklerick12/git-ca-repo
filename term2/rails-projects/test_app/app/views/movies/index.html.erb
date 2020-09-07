@@ -1,0 +1,12 @@
+<h1>List all Movies</h1>
+
+<button type="button" class="btn btn-outline-danger"><%= link_to "Rate a new movie", new_movie_path %></button>
+
+<ul class="list-group">
+    <% @movies.each_with_index do |movie, index| %>
+        <li class="list-group-item">
+            <%= movie[":title"] %> : <%= movie[":rating"] %><%= link_to "Show Movie", movie_path(index + 1) %>
+        </li>
+    <% end %>
+</ul>
+
