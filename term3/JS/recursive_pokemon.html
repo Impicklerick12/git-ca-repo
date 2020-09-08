@@ -6,21 +6,40 @@
 </head>
 
 <body>
-  <button id="button">Get Jokes</button>
+  <button id="button">Show Pokemon</button>
   <script>
-    function compileJokes(num, callback, arr = []) {
-      let url = "https://icanhazdadjoke.com/";
-      $.getJSON(url, (dadJoke) => {
-        arr.push(dadJoke.joke);
+    function addPokemonToArr(num, callback, arr = []) {
+      // set url for API call
+      // get a random number between 1 and 151 for pokemon
+      // add number to url for API call
+
+      let url = "https://pokeapi.co/api/v2/pokemon/";
+      let pokemon = randomNumber(1, 152);
+      url = url + pokemon;
+
+      // get JSON from the API and put names (and sprites/images) into array of objects
+      // call the function recursively for the nums that have been set
+      $.getJSON(url, (data) => {
+        arr.push({name: data.name});
         if (num === arr.length) {
           return callback(arr);
-        }
-        return compileJokes(num, callback, arr);
+        } else {
+          return addPokemonToArr(num, callback, arr)
+        } 
       });
     }
+
+    // random number generator 
+    function randomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    // call the function and loop through the results appending each element as a list item in an UL
     document.querySelector("#button").addEventListener("click", () => {
-      compileJokes(5, (data) => {
-        console.log(data);
+      addPokemonToArr(5, (data) => {
+        data.forEach(pokemon => {
+          $('#showPokemon').append(`<li>${pokemon.name}</li>`);
+        });
       });
     });
   </script>
