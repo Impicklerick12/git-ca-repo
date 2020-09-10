@@ -1,0 +1,69 @@
+<!-- 
+DOM Manipulation - The Book List
+The Book List
+Create a webpage with an h1 of "My Book List".
+Add a script tag to the bottom of the page, where all your JS will go.
+Copy this array of books:
+    var books = [
+      {
+        title: 'The Design of EveryDay Things',
+        author: 'Don Norman',
+        alreadyRead: false
+      }, {
+        title: 'The Most Human Human',
+        author: 'Brian Christian',
+        alreadyRead: true
+      }
+    ];
+  
+Iterate through the array of books. For each book, create a p element with the book title and author and append it to the page.
+Bonuses:
+Use a ul and li to display the books.
+Add an img to each book that links to a URL of the book cover.
+Change the style of the book depending on whether you have read it or not. 
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Book List</title>
+  </head>
+   	<body>
+      <h1>Book List</h1>
+      <script>
+         var books = [
+          {
+            title: 'The Design of EveryDay Things',
+            author: 'Don Norman',
+            alreadyRead: false
+          }, {
+            title: 'The Most Human Human',
+            author: 'Brian Christian',
+            alreadyRead: true
+          }
+        ];
+        // create ul for book list
+        let bookList = document.createElement('ul')
+        // add id of list
+        bookList.id = "list";
+        // add ul (append child) to body of html
+        document.body.appendChild(bookList);
+
+        // for each loop to create a li item for each book in array
+        books.forEach(function (book) {
+          // create new book li item
+          let newBook = document.createElement('li');
+          // create text for books, the books title and author
+          let text = document.createTextNode(`${book.title} by ${book.author}`);
+          // add text to the new book
+          newBook.appendChild(text);
+          // add new books to element with id 'list' which is our ul
+          document.getElementById('list').appendChild(newBook);
+
+          // ternary statement to alter the text colour of the list item depending on if it has been read or not
+          book.alreadyRead ? newBook.style.color = "red" : newBook.style.color = "blue"
+        });
+      </script>
+	  </body>
+</html>
