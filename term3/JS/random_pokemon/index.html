@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Bulma CDN --->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css'>
+    <script defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'></script>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+    <div class=container is-fluid">
+        <button class="button is-danger is-medium is-fullwidth" id="pokemonEncounter" onclick="">Encounter a Pokemon!</button>
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <div id="card" class="card">
+                    <div class="card-image">
+                        <figure id="pokemonImage" class="image is-4by3">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p id="pokemonName" class="title is-4"></p>
+                                <p id="pokemonType1" class="subtitle is-6"></p>
+                                <p id="pokemonType1" class="subtitle is-6"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <button id="pokemonTeam" onclick="">Create a Pokemon Team!</button> -->
+    </div>  
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

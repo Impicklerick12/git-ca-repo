@@ -1,11 +1,18 @@
 let form = document.getElementById('addForm');
 let itemList = document.getElementById('items');
 let filter = document.getElementById('filter');
+let deleteIcon = document.getElementsByClassName('list-group-item')
+let completeIcon = document.querySelector('.fas.fa-check')
+
+// create list object
+let list = []
 
 // Form submit event
 form.addEventListener('submit', addItem);
 // Delete event
-itemList.addEventListener('click', removeItem);
+deleteIcon.addEventListener('click', removeOrCompleteItem);
+// Complete event
+completeIcon.addEventListener('click', removeOrCompleteItem);
 // Filter event
 filter.addEventListener('keyup', filterItems)
 
@@ -27,23 +34,49 @@ function addItem(e) {
     let deleteBtn = document.createElement('button');
     // Add classes to delete button
     deleteBtn.className = 'btn btn-danger btn-sm float-right delete'
-    // Append text node
-    deleteBtn.appendChild(document.createTextNode('X'));
+    // create delete button logo
+    let deleteLogo = document.createElement('i');
+    deleteLogo.className = "fas fa-trash-alt"
+    deleteLogo.id = "icons"
+    // Append logo to delete button
+    deleteBtn.appendChild(deleteLogo)
 
-    // Append button to li
+    // create complete button element
+    let completeBtn = document.createElement('button');
+    // Add classes to delete button
+    completeBtn.className = 'btn btn-success btn-sm float-right complete'
+    // create complete button logo
+    let completeLogo = document.createElement('i');
+    completeLogo.className = "fas fa-check"
+    completeLogo.id = "icons"
+    // Append logo to delete button
+    completeBtn.appendChild(completeLogo)
+
+    // Append buttons to li
     li.appendChild(deleteBtn);
-
+    li.appendChild(completeBtn);
 
     itemList.appendChild(li);
+    list.push(newItem);
+    console.log(list);
 }
 
-// Remove item function
-function removeItem(e) {
+// Completed item function
+function removeOrCompleteItem(e) {
+    console.log(e.target.parentElement.innerText);
     if (e.target.classList.contains('delete')) {
         if (confirm('Are you sure?')) {
             let li = e.target.parentElement;
             itemList.removeChild(li);
+
+            // let deletedItem = e.target.parentElement.innerText[0]
+            let index = list.indexOf(e.target.parentElement.innerText[0]);
+            list.splice(index, 1);
+            console.log(list)
         }
+    } else {
+        let li = e.target.parentElement;
+        li.style.opacity = 0.1;
     }
 }
 
