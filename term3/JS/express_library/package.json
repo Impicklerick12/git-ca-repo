@@ -1,0 +1,19 @@
+{
+  "name": "express_library",
+  "version": "1.0.0",
+  "description": "We are going to create some CRUD routes for a library app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
