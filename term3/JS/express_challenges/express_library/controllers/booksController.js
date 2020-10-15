@@ -23,7 +23,7 @@ const create = (req, res) => {
     // pushing newBook into books object
     books.push(newBook)
     // console.log(newBook)
-    res.send(newBook)
+    res.send(books)
 }
 
 const update = (req, res) => {
@@ -39,7 +39,7 @@ const update = (req, res) => {
     book.author = updatedBook.author
     book.movie = updatedBook.movie
 
-    res.send(book)
+    res.send(books)
 }
 
 const destroy = (req, res) => {

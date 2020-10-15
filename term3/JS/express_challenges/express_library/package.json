@@ -4,15 +4,23 @@
   "description": "We are going to create some CRUD routes for a library app.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.5"
+    "jest": "^26.5.3",
+    "nodemon": "^2.0.5",
+    "supertest": "^5.0.0"
   },
+  "jest": {
+		"testEnvironment": "node",
+		"coveragePathIgnorePatterns": [
+			"/node_modules/"
+		]
+	},
   "dependencies": {
     "express": "^4.17.1"
   }
